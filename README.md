@@ -1,38 +1,35 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# nextjs-ts-blog
+
+This is a minimalistic blog for those who don't want to bother hosting a separate storage system like a database, cache etc.
+
+All your posts can be provided as files at `data/posts` and the entire blog is build at build-time (yarn build or yarn export).
+
+This is useful for small blogs, otherwise you might want dynamic generation for huge blogs.
 
 ## Getting Started
 
-First, run the development server:
+Make sure to have your posts at `data/posts` before starting development or build.
 
-```bash
-npm run dev
-# or
+You can copy the data/example-posts at data/posts as a start.
+
+It is recommended to keep the posts in a separate repository but if you want just remove from gitignore data/posts and can keep all together here.
+
+## Development
+
+run
+```
 yarn dev
-# or
-pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+then open the site, modify the code and hot-reload will refresh the page
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Build the blog
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+run
+```bash
+next export
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+then you can statically host the result at `out` directory.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Enjoy! No server is needed, just a s3 bucket or any storage will be enough.
